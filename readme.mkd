@@ -1,0 +1,4 @@
+.dot
+=====
+
+Configuration files and stuff
