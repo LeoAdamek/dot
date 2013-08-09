@@ -18,7 +18,7 @@ urxvt*font                     :  xft:Terminus:size=9
 urxvt*cusor                    :  #00FF00
 !! Colors
 urxvt.depth                    :  32
-urxvt.background               :  #000000
+urxvt.background               :  [90]#000000
 urxvt.foreground               :  #AAAAAA
 ! black + red
 !urxvt*color0                  :  #3f3f3f
