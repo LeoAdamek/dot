@@ -120,7 +120,7 @@ vicious.register(mymemory , vicious.widgets.mem , "RAM $1% ($2MB/$3MB) :: " , 1)
 
 -- CPU %
 mycpu = wibox.widget.textbox()
--- vicious.register(mycpu , vicious.widgets.cpu,  "CPU: $1% :: ", 1)
+vicious.register(mycpu , vicious.widgets.cpu,  "CPU: $1% :: ", 1)
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -238,7 +238,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
+--    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
