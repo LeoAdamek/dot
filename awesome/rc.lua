@@ -43,7 +43,7 @@ beautiful.init("/home/leo/.config/awesome/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -120,7 +120,18 @@ vicious.register(mymemory , vicious.widgets.mem , "RAM $1% ($2MB/$3MB) :: " , 1)
 
 -- CPU %
 mycpu = wibox.widget.textbox()
--- vicious.register(mycpu , vicious.widgets.cpu,  "CPU: $1% :: ", 1)
+vicious.register(mycpu , vicious.widgets.cpu,  " $1% (CPU) :: ", 1)
+
+-- CPU Graph
+cpu_graph = awful.widget.graph()
+cpu_graph:set_width(64)
+cpu_graph:set_background_color("#000000")
+cpu_graph:set_color({
+                       type = "linear",
+                       from = {0,0} ,
+                       to   = {10, 0},
+                       stops = { {0 , "#FF5656" } , {0.5 , "#88A175"} , {1 , "#AECF96"}}})
+vicious.register(cpu_graph , vicious.widgets.cpu , "$1")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -200,6 +211,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(cpu_graph)
     right_layout:add(mycpu)
     right_layout:add(mymemory)
     right_layout:add(mytextclock)
@@ -238,7 +250,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
+--    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -273,13 +285,7 @@ globalkeys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end),
+    
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end)
 )
@@ -358,7 +364,9 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
-                     buttons = clientbuttons } },
+                     buttons = clientbuttons,
+		     size_hints_honor = false
+    } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
