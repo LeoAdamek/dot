@@ -45,6 +45,3 @@ export PATH=$PATH:~/.bin
 
 # Change $TERM to 'xterm' so we can ssh properly
 alias ssh="export TERM='xterm';ssh"
-
-# Make sure tmux knows we're 256-colour compatible
-[ -n "$TMUX" ] && export TERM=screen-256color
