@@ -27,3 +27,4 @@ alias dev-mysql="mysql -h 192.168.56.102 -udev -p"
 # Additional Paths
 ##
 [[ -d '/opt/php/bin' ]] && export PATH=$PATH:/opt/php/bin
+[[ -d '/opt/mongodb/bin' ]] && export PATH=$PATH:/opt/mongodb/bin
