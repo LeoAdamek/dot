@@ -53,5 +53,10 @@ alias dev-mysql="mysql -h 192.168.56.102 -udev -p"
 #--------------------------------------------------------------------------------
 [[ -d '/opt/php/bin' ]] && export PATH=$PATH:/opt/php/bin
 [[ -d '/opt/mongodb/bin' ]] && export PATH=$PATH:/opt/mongodb/bin
+[[ -d '/opt/postgres/bin' ]] && export PATH=$PATH:/opt/postgres/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+#--------------------------------------------------------------------------------
+# SSH-Agent
+#--------------------------------------------------------------------------------
