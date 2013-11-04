@@ -49,14 +49,13 @@ alias ssh="export TERM='xterm';ssh"
 alias dev-mysql="mysql -h 192.168.56.102 -udev -p"
 
 #--------------------------------------------------------------------------------
+# RVM Settings + Initialization
+#--------------------------------------------------------------------------------
+source ~/.rvm/scripts/rvm
+
+#--------------------------------------------------------------------------------
 # Additional Paths
 #--------------------------------------------------------------------------------
-[[ -d '/opt/php/bin' ]] && export PATH=$PATH:/opt/php/bin
-[[ -d '/opt/mongodb/bin' ]] && export PATH=$PATH:/opt/mongodb/bin
+[[ -d '/opt/php/bin'      ]] && export PATH=$PATH:/opt/php/bin
+[[ -d '/opt/mongodb/bin'  ]] && export PATH=$PATH:/opt/mongodb/bin
 [[ -d '/opt/postgres/bin' ]] && export PATH=$PATH:/opt/postgres/bin
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-#--------------------------------------------------------------------------------
-# SSH-Agent
-#--------------------------------------------------------------------------------
