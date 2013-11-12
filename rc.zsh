@@ -50,3 +50,6 @@ source ~/.rvm/scripts/rvm
 [[ -d '/opt/php/bin'      ]] && export PATH=$PATH:/opt/php/bin
 [[ -d '/opt/mongodb/bin'  ]] && export PATH=$PATH:/opt/mongodb/bin
 [[ -d '/opt/postgres/bin' ]] && export PATH=$PATH:/opt/postgres/bin
+[[ -d '/opt/redis/bin'    ]] && export PATH=$PATH:/opt/redis/bin
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
