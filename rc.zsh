@@ -10,7 +10,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #--------------------------------------------------------------------------------
-ZSH_THEME="dieter"
+ZSH_THEME="robbyrussell"
 
 #--------------------------------------------------------------------------------
 # Plugins
@@ -30,8 +30,8 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl
 #--------------------------------------------------------------------------------
 # Set Pager
 #--------------------------------------------------------------------------------
-which most &> /dev/null \
-    && export PAGER=most
+# which most &> /dev/null \
+#    && export PAGER=most
 
 #--------------------------------------------------------------------------------
 # Set EDITOR
@@ -59,3 +59,6 @@ source ~/.rvm/scripts/rvm
 [[ -d '/opt/php/bin'      ]] && export PATH=$PATH:/opt/php/bin
 [[ -d '/opt/mongodb/bin'  ]] && export PATH=$PATH:/opt/mongodb/bin
 [[ -d '/opt/postgres/bin' ]] && export PATH=$PATH:/opt/postgres/bin
+[[ -d '/opt/redis/bin'    ]] && export PATH=$PATH:/opt/redis/bin
+[[ -d "$HOME/.cabal/bin"  ]] && export PATH=$PATH:$HOME/.cabal/bin
+
