@@ -123,6 +123,7 @@ mycpu = wibox.widget.textbox()
 vicious.register(mycpu , vicious.widgets.cpu,  " $1% (CPU) :: ", 1)
 
 -- CPU Graph
+--[[
 cpu_graph = awful.widget.graph()
 cpu_graph:set_width(64)
 cpu_graph:set_background_color("#000000")
@@ -132,7 +133,7 @@ cpu_graph:set_color({
                        to   = {10, 0},
                        stops = { {0 , "#FF5656" } , {0.5 , "#88A175"} , {1 , "#AECF96"}}})
 vicious.register(cpu_graph , vicious.widgets.cpu , "$1")
-
+--]]
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -211,7 +212,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(cpu_graph)
+    --right_layout:add(cpu_graph)
     right_layout:add(mycpu)
     right_layout:add(mymemory)
     right_layout:add(mytextclock)
