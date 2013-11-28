@@ -48,6 +48,11 @@ alias ssh="export TERM='xterm';ssh"
 # Alias for dev mysql
 alias dev-mysql="mysql -h 192.168.56.102 -udev -p"
 
+#
+# Grammatical Correctness is very important
+#
+alias fewer=less
+
 #--------------------------------------------------------------------------------
 # RVM Settings + Initialization
 #--------------------------------------------------------------------------------
