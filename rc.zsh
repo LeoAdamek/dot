@@ -66,4 +66,3 @@ source ~/.rvm/scripts/rvm
 [[ -d '/opt/postgres/bin' ]] && export PATH=$PATH:/opt/postgres/bin
 [[ -d '/opt/redis/bin'    ]] && export PATH=$PATH:/opt/redis/bin
 [[ -d "$HOME/.cabal/bin"  ]] && export PATH=$PATH:$HOME/.cabal/bin
-
