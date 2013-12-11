@@ -15,7 +15,7 @@ ZSH_THEME="clean"
 #--------------------------------------------------------------------------------
 # Plugins
 #--------------------------------------------------------------------------------
-plugins=(git github colorize nyan lol archlinux themes web-search svn rsync)
+plugins=(git github colorize nyan lol archlinux cp docker)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
@@ -49,9 +49,9 @@ alias ssh="export TERM='xterm';ssh"
 alias dev-mysql="mysql -h 192.168.56.102 -udev -p"
 
 #--------------------------------------------------------------------------------
-# RVM Settings + Initialization
+# RVM Settings + Initialization (if installed)
 #--------------------------------------------------------------------------------
-source ~/.rvm/scripts/rvm
+[[ -f $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 #--------------------------------------------------------------------------------
 # Additional Paths
@@ -60,5 +60,6 @@ source ~/.rvm/scripts/rvm
 [[ -d '/opt/mongodb/bin'  ]] && export PATH=$PATH:/opt/mongodb/bin
 [[ -d '/opt/postgres/bin' ]] && export PATH=$PATH:/opt/postgres/bin
 [[ -d '/opt/redis/bin'    ]] && export PATH=$PATH:/opt/redis/bin
+[[ -d "$HOME/.bin"        ]] && export PATH=$PATH:$HOME/.bin
+[[ -d "$HOME/.rvm/bin"    ]] && export PATH=$PATH:$HOME/.rvm/bin
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
