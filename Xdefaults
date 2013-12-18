@@ -26,7 +26,7 @@ URxvt*scrollTtyKeypress:    true
 URxvt.perl-ext-common:  default,matcher
 URxvt.url-launcher: firefox
 URxvt.matcher.button:   1
-URxvt*font: xft:Terminus:size=12
+URxvt*font: xft:Terminus:size=9
 
 /********************
  **  Perso colors  **
