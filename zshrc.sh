@@ -1,4 +1,8 @@
-# ZSH OPTIONS
+#--------------------------------------------------------------------------------
+# ZSH Options
+#
+# Turn on `extendedglob` to alow filters like *~*important_file* to work
+#--------------------------------------------------------------------------------
 setopt extendedglob
 
 # Path to your oh-my-zsh configuration.
@@ -10,12 +14,13 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #--------------------------------------------------------------------------------
-ZSH_THEME="clean"
+ZSH_THEME="random"
 
 #--------------------------------------------------------------------------------
 # Plugins
+# (For oh-my-zsh)
 #--------------------------------------------------------------------------------
-plugins=(git github colorize nyan lol archlinux cp docker)
+plugins=(git github colorize nyan lol archlinux cp theme)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
@@ -23,30 +28,26 @@ plugins=(git github colorize nyan lol archlinux cp docker)
 source $ZSH/oh-my-zsh.sh
 
 #--------------------------------------------------------------------------------
-# Export Path
+# SSH Agent
 #--------------------------------------------------------------------------------
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl
+eval $(ssh-agent) &> /dev/null
+
+# Private keys all end in `.pem`
+# (Required to filter out publics and configs)
+ssh-add $HOME/.ssh/*.pem &> /dev/null
 
 #--------------------------------------------------------------------------------
-# Set Pager
-#--------------------------------------------------------------------------------
-which most &> /dev/null \
-    && export PAGER=most
-
-#--------------------------------------------------------------------------------
-# Set EDITOR
+# Set EDITOR to `emacs -nw`
 #--------------------------------------------------------------------------------
 which emacs &> /dev/null \
     && export EDITOR="emacs -nw"
 
 #--------------------------------------------------------------------------------
-# Change $TERM to 'xterm' so we can ssh properly
+# Hack to change terminal behaviour so SSH works correctly
+# As remote hosts won't be configued for a 256-colour temrinal.
 #--------------------------------------------------------------------------------
-alias ssh="export TERM='xterm';ssh"
+alias ssh="TERM=xterm ssh"
 
-
-# Alias for dev mysql
-alias dev-mysql="mysql -h 192.168.56.102 -udev -p"
 
 #--------------------------------------------------------------------------------
 # RVM Settings + Initialization (if installed)
@@ -55,6 +56,7 @@ alias dev-mysql="mysql -h 192.168.56.102 -udev -p"
 
 #--------------------------------------------------------------------------------
 # Additional Paths
+# Will check for each of the following directories and append it to the path.
 #--------------------------------------------------------------------------------
 [[ -d '/opt/php/bin'      ]] && export PATH=$PATH:/opt/php/bin
 [[ -d '/opt/mongodb/bin'  ]] && export PATH=$PATH:/opt/mongodb/bin
