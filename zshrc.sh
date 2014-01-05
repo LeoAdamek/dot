@@ -14,7 +14,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #--------------------------------------------------------------------------------
-ZSH_THEME="random"
+ZSH_THEME="robbyrussell"
 
 #--------------------------------------------------------------------------------
 # Plugins
@@ -47,6 +47,12 @@ which emacs &> /dev/null \
 # As remote hosts won't be configued for a 256-colour temrinal.
 #--------------------------------------------------------------------------------
 alias ssh="TERM=xterm ssh"
+
+#--------------------------------------------------------------------------------
+# (other) Command Aliases
+#--------------------------------------------------------------------------------
+# Always color pacman output
+alias pacman="pacman --color=always"
 
 
 #--------------------------------------------------------------------------------
