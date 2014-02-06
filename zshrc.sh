@@ -30,11 +30,11 @@ source $ZSH/oh-my-zsh.sh
 #--------------------------------------------------------------------------------
 # SSH Agent
 #--------------------------------------------------------------------------------
-eval $(ssh-agent) &> /dev/null
+# eval $(ssh-agent) &> /dev/null
 
 # Private keys all end in `.pem`
 # (Required to filter out publics and configs)
-ssh-add $HOME/.ssh/*.pem &> /dev/null
+#ssh-add $HOME/.ssh/*.pem &> /dev/null
 
 #--------------------------------------------------------------------------------
 # Set EDITOR to `emacs -nw`
@@ -53,6 +53,8 @@ alias ssh="TERM=xterm ssh"
 #--------------------------------------------------------------------------------
 # Always color pacman output
 alias pacman="pacman --color=always"
+# Amazing Git fancy-log
+alias git-fancy-log="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
 
 #--------------------------------------------------------------------------------
