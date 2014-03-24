@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Wrapper for PHP_CS
+
+showhelp() {
+    cat <<EOF
+flymake_phpcs [-h] <source-file> [<phpcs-args>]
+
+Run phpcs (and php -l) on <source-file> and report for emacs.
+
+-h Display Help
+<source-file> source file to parse
+<phpcs-arguments> Additional arguments for phpcs
+EOF
+
+exit 0;
+}
+
+
+FILE_NAME="$1"
+shift
+
+phpcs --report=emacs "$FILE_NAME" $*
+
+php -l -f "$FILE_NAME"
+
+exit $?
