@@ -65,13 +65,16 @@ alias pacman="pacman --color=always"
 # Will check for each of the following directories and append it to the path.
 #--------------------------------------------------------------------------------
 [[ -d '/opt/php/bin'      ]] && export PATH=$PATH:/opt/php/bin
+
 [[ -d '/opt/mongodb/bin'  ]] && export PATH=$PATH:/opt/mongodb/bin
 [[ -d '/opt/postgres/bin' ]] && export PATH=$PATH:/opt/postgres/bin
 [[ -d '/opt/redis/bin'    ]] && export PATH=$PATH:/opt/redis/bin
+
 [[ -d '/opt/arduino'      ]] && export PATH=$PATH:/opt/arduino
+
 [[ -d '/opt/pronterface'  ]] && export PATH=$PATH:/opt/printerface
 [[ -d '/opt/slic3r'       ]] && export PATH=$PATH:/opt/slic3r
 [[ -d '/opt/idea'         ]] && export PATH=$PATH:/opt/idea/bin
+
 [[ -d "$HOME/.bin"        ]] && export PATH=$PATH:$HOME/.bin
 [[ -d "$HOME/.rvm/bin"    ]] && export PATH=$PATH:$HOME/.rvm/bin
-
