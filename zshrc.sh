@@ -80,3 +80,4 @@ alias git-fancy-log="git log --graph --abbrev-commit --decorate --date=relative 
 
 [[ -d "$HOME/.bin"        ]] && export PATH=$PATH:$HOME/.bin
 [[ -d "$HOME/.rvm/bin"    ]] && export PATH=$PATH:$HOME/.rvm/bin
+export RSENSE_HOME=/opt/rsense
