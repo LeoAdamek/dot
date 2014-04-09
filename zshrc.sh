@@ -20,7 +20,7 @@ ZSH_THEME="robbyrussell"
 # Plugins
 # (For oh-my-zsh)
 #--------------------------------------------------------------------------------
-plugins=(git github colorize nyan lol archlinux cp theme)
+plugins=(git github colorize nyan lol archlinux cp theme catimg aws npm bundler systemd)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
