@@ -8,10 +8,10 @@ URxvt.background: #080808
 
 URxvt.blurRadius: 20
 !URxvt.transparent: true
-URxvt*.shading: 20
-URxvt.tint: black
-URxvt.cursorBlink: true
-URxvt.cursorColor: #404040
+!URxvt*.shading: 20
+!URxvt.tint: black
+URxvt.cursorBlink: false
+URxvt.cursorColor: #00FF00
 URxvt.scrollBar: false
 URxvt.saveLines: 1000
 URxvt.colorUL: #3465A4
