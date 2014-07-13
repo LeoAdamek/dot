@@ -20,7 +20,7 @@ ZSH_THEME="robbyrussell"
 # Plugins
 # (For oh-my-zsh)
 #--------------------------------------------------------------------------------
-plugins=(git github colorize nyan lol archlinux cp theme catimg aws npm bundler systemd)
+plugins=(git github colorize nyan lol archlinux cp theme catimg npm bundler systemd)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
@@ -80,4 +80,10 @@ alias git-fancy-log="git log --graph --abbrev-commit --decorate --date=relative 
 
 [[ -d "$HOME/.bin"        ]] && export PATH=$PATH:$HOME/.bin
 [[ -d "$HOME/.rvm/bin"    ]] && export PATH=$PATH:$HOME/.rvm/bin
-export RSENSE_HOME=/opt/rsense
+
+#--------------------------------------------------------------------------------
+# Aliases
+#--------------------------------------------------------------------------------
+alias vim='emacs -nw'
+alias wow='git status'
+alias commit='git commit -m'
