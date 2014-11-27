@@ -73,6 +73,7 @@ alias ssh="TERM=xterm ssh"
 ## 3D Printing
 [[ -d '/opt/pronterface'  ]] && export PATH=$PATH:/opt/printerface
 [[ -d '/opt/slic3r'       ]] && export PATH=$PATH:/opt/slic3r
+
 [[ -d '/opt/idea'         ]] && export PATH=$PATH:/opt/idea/bin
 
 ## RVM
