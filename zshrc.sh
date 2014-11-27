@@ -95,3 +95,6 @@ alias git-fancy-log="git log --graph --abbrev-commit --decorate --date=relative 
 
 # Dalek Delete
 alias exterminate="rm -rf"
+
+# Top 10 Commands
+alias top10="ps -c80 -ocmd,%mem,%cpu -k-%mem -ax | head -n11"
