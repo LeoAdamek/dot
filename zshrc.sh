@@ -41,8 +41,8 @@ fi
 #--------------------------------------------------------------------------------
 # Set EDITOR to `emacs -nw` if emacs is installed
 #--------------------------------------------------------------------------------
-which emacs &> /dev/null \
-    && export EDITOR="emacs -nw"
+which emacsclient &> /dev/null \
+    && export EDITOR="emacsclient -nw"
 
 #--------------------------------------------------------------------------------
 # Hack to change terminal behaviour so SSH works correctly
@@ -61,31 +61,35 @@ alias ssh="TERM=xterm ssh"
 # Will check for each of the following directories and append it to the path.
 #--------------------------------------------------------------------------------
 # PHP from source
-[[ -d '/opt/php/bin'      ]] && export PATH=$PATH:/opt/php/bin
+[[ -d '/opt/php/bin'      ]] && export PATH=/opt/php/bin:$PATH
 
 ## Databases etc
-[[ -d '/opt/mongodb/bin'  ]] && export PATH=$PATH:/opt/mongodb/bin
-[[ -d '/opt/postgres/bin' ]] && export PATH=$PATH:/opt/postgres/bin
-[[ -d '/opt/redis/bin'    ]] && export PATH=$PATH:/opt/redis/bin
+[[ -d '/opt/mongodb/bin'  ]] && export PATH=/opt/mongodb/bin:$PATH
+[[ -d '/opt/postgres/bin' ]] && export PATH=/opt/postgres/bin:$PATH
+[[ -d '/opt/redis/bin'    ]] && export PATH=/opt/redis/bin:$PATH
 
-[[ -d '/opt/arduino'      ]] && export PATH=$PATH:/opt/arduino
+[[ -d '/opt/arduino'      ]] && export PATH=/opt/arduino:$PATH
 
 ## 3D Printing
-[[ -d '/opt/pronterface'  ]] && export PATH=$PATH:/opt/printerface
-[[ -d '/opt/slic3r'       ]] && export PATH=$PATH:/opt/slic3r
+[[ -d '/opt/pronterface'  ]] && export PATH=/opt/printerface:$PATH
+[[ -d '/opt/slic3r'       ]] && export PATH=/opt/slic3r:$PATH
 
-[[ -d '/opt/idea'         ]] && export PATH=$PATH:/opt/idea/bin
+## IntelliJ IDEA
+[[ -d '/opt/idea'         ]] && export PATH=/opt/idea/bin:$PATH
 
 ## RVM
-[[ -d "$HOME/.bin"        ]] && export PATH=$PATH:$HOME/.bin
-[[ -d "$HOME/.rvm/bin"    ]] && export PATH=$PATH:$HOME/.rvm/bin
+[[ -d "$HOME/.bin"        ]] && export PATH=$HOME/.bin:$PATH
+[[ -d "$HOME/.rvm/bin"    ]] && export PATH=$HOME/.rvm/bin:$PATH
+
+## Haskell (Cabal)
+[[ -d "$HOME/.cabal/bin"  ]] && export PATH=$HOME/.cabal/bin:$PATH
 
 #--------------------------------------------------------------------------------
 # Aliases
 #--------------------------------------------------------------------------------
 
 # Shibe git
-alias vim='emacs -nw'
+alias vim='emacsclient -nw'
 alias wow='git status'
 alias commit='git commit -m'
 
