@@ -20,7 +20,7 @@ ZSH_THEME="robbyrussell"
 # Plugins
 # (For oh-my-zsh)
 #--------------------------------------------------------------------------------
-plugins=(git github colorize nyan lol archlinux cp theme catimg npm bundler systemd)
+plugins=(git archlinux cp theme npm bundler systemd aws)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
@@ -77,8 +77,11 @@ alias ssh="TERM=xterm ssh"
 [[ -d '/opt/idea'         ]] && export PATH=$PATH:/opt/idea/bin
 
 ## RVM
-[[ -d "$HOME/.bin"        ]] && export PATH=$PATH:$HOME/.bin
-[[ -d "$HOME/.rvm/bin"    ]] && export PATH=$PATH:$HOME/.rvm/bin
+[[ -d "$HOME/.bin"        ]] && export PATH=$HOME/.bin:$PATH
+[[ -d "$HOME/.rvm/bin"    ]] && export PATH=$HOME/.rvm/bin:$PATH
+
+# CABAL (Haskell)
+[[ -d "$HOME/.cabal/bin"  ]] && export PATH=$HOME/.cabal/bin:$PATH
 
 #--------------------------------------------------------------------------------
 # Aliases
