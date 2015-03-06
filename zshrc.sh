@@ -103,3 +103,8 @@ alias exterminate="rm -rf"
 
 # Top 10 Commands
 alias top10="ps -c80 -ocmd,%mem,%cpu -k-%mem -ax | head -n11"
+
+# View some JSON/XML data in less
+alias less-json="json_pp | pygmentize -ljson | less"
+alias less-xml="xmllint --format - | pygmentize -lxml | less"
+
