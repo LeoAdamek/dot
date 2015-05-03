@@ -41,8 +41,8 @@ fi
 #--------------------------------------------------------------------------------
 # Set EDITOR to `emacs -nw` if emacs is installed
 #--------------------------------------------------------------------------------
-which emacs &> /dev/null \
-    && export EDITOR="emacs -nw"
+which emacsclient &> /dev/null \
+    && export EDITOR="emacsclient -nw"
 
 #--------------------------------------------------------------------------------
 # Hack to change terminal behaviour so SSH works correctly
@@ -61,20 +61,21 @@ alias ssh="TERM=xterm ssh"
 # Will check for each of the following directories and append it to the path.
 #--------------------------------------------------------------------------------
 # PHP from source
-[[ -d '/opt/php/bin'      ]] && export PATH=$PATH:/opt/php/bin
+[[ -d '/opt/php/bin'      ]] && export PATH=/opt/php/bin:$PATH
 
 ## Databases etc
-[[ -d '/opt/mongodb/bin'  ]] && export PATH=$PATH:/opt/mongodb/bin
-[[ -d '/opt/postgres/bin' ]] && export PATH=$PATH:/opt/postgres/bin
-[[ -d '/opt/redis/bin'    ]] && export PATH=$PATH:/opt/redis/bin
+[[ -d '/opt/mongodb/bin'  ]] && export PATH=/opt/mongodb/bin:$PATH
+[[ -d '/opt/postgres/bin' ]] && export PATH=/opt/postgres/bin:$PATH
+[[ -d '/opt/redis/bin'    ]] && export PATH=/opt/redis/bin:$PATH
 
-[[ -d '/opt/arduino'      ]] && export PATH=$PATH:/opt/arduino
+[[ -d '/opt/arduino'      ]] && export PATH=/opt/arduino:$PATH
 
 ## 3D Printing
-[[ -d '/opt/pronterface'  ]] && export PATH=$PATH:/opt/printerface
-[[ -d '/opt/slic3r'       ]] && export PATH=$PATH:/opt/slic3r
+[[ -d '/opt/pronterface'  ]] && export PATH=/opt/printerface:$PATH
+[[ -d '/opt/slic3r'       ]] && export PATH=/opt/slic3r:$PATH
 
-[[ -d '/opt/idea'         ]] && export PATH=$PATH:/opt/idea/bin
+## IntelliJ IDEA
+[[ -d '/opt/idea'         ]] && export PATH=/opt/idea/bin:$PATH
 
 ## RVM
 [[ -d "$HOME/.bin"        ]] && export PATH=$HOME/.bin:$PATH
@@ -88,14 +89,25 @@ alias ssh="TERM=xterm ssh"
 #--------------------------------------------------------------------------------
 
 # Shibe git
-alias vim='emacs -nw'
+alias vim='emacsclient -nw'
 alias wow='git status'
 alias commit='git commit -m'
 
 # Always color pacman output
 alias pacman="pacman --color=always"
+
 # Amazing Git fancy-log
 alias git-fancy-log="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
 # Dalek Delete
 alias exterminate="rm -rf"
+
+# Top 10 Commands
+alias top10="ps -c80 -ocmd,%mem,%cpu -k-%mem -ax | head -n11"
+
+# View some JSON/XML data in less
+alias less-json="json_pp | pygmentize -ljson | less"
+alias less-xml="xmllint --format - | pygmentize -lxml | less"
+
+# Unsetting GREP_OPTIONS because it is deprecated.
+export GREP_OPTIONS=
