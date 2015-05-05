@@ -20,7 +20,7 @@ ZSH_THEME="robbyrussell"
 # Plugins
 # (For oh-my-zsh)
 #--------------------------------------------------------------------------------
-plugins=(git github colorize nyan lol archlinux cp theme catimg npm bundler systemd)
+plugins=(git colorize archlinux cp theme aws npm bundler systemd)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
@@ -107,4 +107,11 @@ alias top10="ps -c80 -ocmd,%mem,%cpu -k-%mem -ax | head -n11"
 # View some JSON/XML data in less
 alias less-json="json_pp | pygmentize -ljson | less"
 alias less-xml="xmllint --format - | pygmentize -lxml | less"
+
+# Packer is installed as packer-io from AUR
+alias packer=packer-io
+
+
+# My alias for 'thefuck'
+alias cock='$(thefuck $(fc -ln -1))'
 
