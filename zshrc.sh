@@ -81,7 +81,7 @@ alias ssh="TERM=xterm ssh"
 [[ -d "$HOME/.bin"        ]] && export PATH=$HOME/.bin:$PATH
 [[ -d "$HOME/.rvm/bin"    ]] && export PATH=$HOME/.rvm/bin:$PATH
 
-## Haskell (Cabal)
+# CABAL (Haskell)
 [[ -d "$HOME/.cabal/bin"  ]] && export PATH=$HOME/.cabal/bin:$PATH
 
 #--------------------------------------------------------------------------------
@@ -95,6 +95,7 @@ alias commit='git commit -m'
 
 # Always color pacman output
 alias pacman="pacman --color=always"
+
 # Amazing Git fancy-log
 alias git-fancy-log="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
@@ -111,7 +112,9 @@ alias less-xml="xmllint --format - | pygmentize -lxml | less"
 # Packer is installed as packer-io from AUR
 alias packer=packer-io
 
-
 # My alias for 'thefuck'
-alias cock='$(thefuck $(fc -ln -1))'
+alias ocock='$(thefuck $(fc -ln -1))'
+
+# Unsetting GREP_OPTIONS because it is deprecated.
+export GREP_OPTIONS=
 
