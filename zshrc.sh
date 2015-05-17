@@ -20,7 +20,7 @@ ZSH_THEME="robbyrussell"
 # Plugins
 # (For oh-my-zsh)
 #--------------------------------------------------------------------------------
-plugins=(git archlinux cp theme npm bundler systemd aws)
+plugins=(git colorize archlinux cp theme aws npm bundler systemd)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
@@ -109,5 +109,12 @@ alias top10="ps -c80 -ocmd,%mem,%cpu -k-%mem -ax | head -n11"
 alias less-json="json_pp | pygmentize -ljson | less"
 alias less-xml="xmllint --format - | pygmentize -lxml | less"
 
+# Packer is installed as packer-io from AUR
+alias packer=packer-io
+
+# My alias for 'thefuck'
+alias ocock='$(thefuck $(fc -ln -1))'
+
 # Unsetting GREP_OPTIONS because it is deprecated.
 export GREP_OPTIONS=
+
