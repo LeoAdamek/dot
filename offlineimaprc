@@ -1,0 +1,23 @@
+[general]
+accounts = personal
+ui = ttyui
+
+[Accoyunt personal]
+localrepository = personal-local
+remoterepository = personal-remote
+status_backend = sqlite
+
+[Repository personal-local]
+type = Maildir
+localfolders = ~/documents/mail/personal
+nametrans = lambda folder: {'archive' : '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository  personal-remote]
+type = Gmail
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remoteuser = leo@adamek.me
+remotepass = *******
+nametrans  = lambda folder: {'[Gmail]/All Mail': 'archive',
+                             }.get(folder, folder)
+folderfilter = lambda folder: folder == '[Gmail]/All Mail'
