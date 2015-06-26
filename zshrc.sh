@@ -118,3 +118,5 @@ alias ocock='$(thefuck $(fc -ln -1))'
 # Unsetting GREP_OPTIONS because it is deprecated.
 export GREP_OPTIONS=
 
+[[ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] \
+    && source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
