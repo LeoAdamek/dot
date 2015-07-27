@@ -14,13 +14,13 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #--------------------------------------------------------------------------------
-ZSH_THEME="robbyrussell"
+ZSH_THEME="avit"
 
 #--------------------------------------------------------------------------------
 # Plugins
 # (For oh-my-zsh)
 #--------------------------------------------------------------------------------
-plugins=(git colorize archlinux cp theme aws npm bundler systemd)
+plugins=(git colorize docker emoji-clock httpie archlinux theme aws bundler systemd)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
@@ -68,11 +68,13 @@ alias ssh="TERM=xterm ssh"
 [[ -d '/opt/postgres/bin' ]] && export PATH=/opt/postgres/bin:$PATH
 [[ -d '/opt/redis/bin'    ]] && export PATH=/opt/redis/bin:$PATH
 
+## Arduino IDE
 [[ -d '/opt/arduino'      ]] && export PATH=/opt/arduino:$PATH
 
-## 3D Printing
+## 3D Printing Tools
 [[ -d '/opt/pronterface'  ]] && export PATH=/opt/printerface:$PATH
 [[ -d '/opt/slic3r'       ]] && export PATH=/opt/slic3r:$PATH
+[[ -d '/opt/Simplify3D'   ]] && export PATH=/opt/Simplify3D:$PATH
 
 ## IntelliJ IDEA
 [[ -d '/opt/idea'         ]] && export PATH=/opt/idea/bin:$PATH
@@ -96,13 +98,14 @@ alias commit='git commit -m'
 # Always color pacman output
 alias pacman="pacman --color=always"
 
-# Amazing Git fancy-log
+# Git Aliases
 alias git-fancy-log="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias git-count="git rev-list HEAD --count"
 
 # Dalek Delete
 alias exterminate="rm -rf"
 
-# Top 10 Commands
+# Top 10 Processes (shows top-level info about the top 10 memory using processes)
 alias top10="ps -c80 -ocmd,%mem,%cpu -k-%mem -ax | head -n11"
 
 # View some JSON/XML data in less
@@ -118,5 +121,6 @@ alias ocock='$(thefuck $(fc -ln -1))'
 # Unsetting GREP_OPTIONS because it is deprecated.
 export GREP_OPTIONS=
 
+# Enable Shell Syntax highlighting if available.
 [[ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] \
     && source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
