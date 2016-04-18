@@ -1,0 +1,19 @@
+#!/bin/sh
+
+git rev-list --no-merges --grep="$1" HEAD |
+xargs -I{} git diff-tree --numstat {} |
+awk '
+/[0-9a-f]{40}/ {
+    commits++
+}
+/[0-9]+\t[0-9]+/ {
+    added += $1
+    removed += $2
+}
+END {
+    print "Commits:", commits
+    print "Added:", added, "removed:", removed
+    print "Average added:", added/commits, "removed:", removed/commits 
+}
+'
+
