@@ -14,7 +14,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #--------------------------------------------------------------------------------
-ZSH_THEME="avit"
+ZSH_THEME="miloshadzic"
 
 #--------------------------------------------------------------------------------
 # Plugins
@@ -49,7 +49,6 @@ which emacsclient &> /dev/null \
 # As remote hosts won't be configued for a 256-colour temrinal.
 #--------------------------------------------------------------------------------
 alias ssh="TERM=xterm ssh"
-
 
 #--------------------------------------------------------------------------------
 # RVM Settings + Initialization (if installed)
@@ -118,9 +117,14 @@ alias packer=packer-io
 # My alias for 'thefuck'
 alias ocock='$(thefuck $(fc -ln -1))'
 
+# Useful way to get stats for docker info
+alias dockertop="docker stats $(docker ps --format '{{.Names}}')"
+
+# useful command for testing TLS
+alias tlsprobe="openssl s_client -connect"
+
 # Unsetting GREP_OPTIONS because it is deprecated.
 export GREP_OPTIONS=
 
-# Enable Shell Syntax highlighting if available.
-[[ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] \
-    && source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# I work in a cow-free environment.
+export ANSIBLE_NOCOWS=1
