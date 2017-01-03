@@ -32,7 +32,7 @@ source $ZSH/oh-my-zsh.sh
 #--------------------------------------------------------------------------------
 if [[ $SSH_AGENT_PID == 0 ]]; then
     eval $(ssh-agent) &> /dev/null
-    
+
     # Private keys all end in `.pem`
     # (Required to filter out publics and configs)
     ssh-add $HOME/.ssh/*.pem &> /dev/null
@@ -125,5 +125,11 @@ alias tlsprobe="openssl s_client -connect"
 # Unsetting GREP_OPTIONS because it is deprecated.
 export GREP_OPTIONS=
 
-# I work in a cow-free environment.
+# Enable Shell Syntax highlighting if available.
+[[ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] \
+    && source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+source ~/.profile
+
+# Cow-free Ansible.
 export ANSIBLE_NOCOWS=1

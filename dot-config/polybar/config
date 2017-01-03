@@ -1,0 +1,69 @@
+[global/wm]
+margin-bottom = 20
+
+[colors]
+highlight = #E8DDCB
+background = #033649
+shadow = #031634
+
+[bar/main]
+width = 100%
+height = 32
+
+override-redirect = false
+
+background = ${colors.background}
+foreground = ${colors.highlight}
+border-bottom = 2
+border-bottom-color = ${colors.shadow}
+border-left = 0
+border-top = 0
+border-right = 0
+
+padding-left = 5
+padding-right = 5
+
+module-margin-right = 2
+
+font-0 = "Terminus:size=12;0"
+font-1 = "FontAwesome:size=12;0"
+
+modules-left = i3spaces
+modules-center = clock
+modules-right = cpu ram net
+
+enable-ipc = true
+
+
+[module/i3spaces]
+type = internal/i3
+
+format = <label-state>
+
+label-focused = " "
+label-unfocused = " "
+label-visible = " "
+label-visible-foreground = #aaaaaa
+label-urgent-foreground = #ff0000
+
+[module/cpu]
+type = internal/cpu
+label = " %percentage:3%"
+
+[module/ram]
+type = internal/memory
+label = " %gb_used:4%/%gb_total:4%"
+
+[module/clock]
+type = internal/date
+interval = 1.0
+
+label = %time%
+date = %Y-%m-%d
+time = %H:%M:%S
+
+[module/net]
+type = internal/network
+interface = enp0s3
+interval = 1.0
+label-connected = " %downspeed:8% / %upspeed:8%"
