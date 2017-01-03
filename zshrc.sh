@@ -39,10 +39,9 @@ if [[ $SSH_AGENT_PID == 0 ]]; then
 fi
 
 #--------------------------------------------------------------------------------
-# Set EDITOR to `emacs -nw` if emacs is installed
+# Set EDITOR to `vim` -- Will be overridden by emacs if installed.
 #--------------------------------------------------------------------------------
-which emacsclient &> /dev/null \
-    && export EDITOR="emacsclient -nw"
+export EDITOR=vim
 
 #--------------------------------------------------------------------------------
 # Hack to change terminal behaviour so SSH works correctly
