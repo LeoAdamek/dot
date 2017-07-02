@@ -89,7 +89,6 @@ alias ssh="TERM=xterm ssh"
 #--------------------------------------------------------------------------------
 
 # Shibe git
-alias vim='emacsclient -nw'
 alias wow='git status'
 alias commit='git commit -m'
 
@@ -128,6 +127,9 @@ export GREP_OPTIONS=
 # Enable Shell Syntax highlighting if available.
 [[ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] \
     && source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+export LS_COLORS=$($HOME/.bin/ls_colors_generator)
+#alias  ls="~/.bin/ls --color=auto"
 
 source ~/.profile
 
