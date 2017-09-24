@@ -149,11 +149,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+#border pixel 2
+
 client.focused #000000 #000000 #15ddf0 #15ddf0
-client.focused_inactive #000000 #000000 #5C0860
-client.unfocused $c0 $c0 $c4 $c0 $c0 
+client.focused_inactive #000000 #000000 #5C0860 #5C0860
+client.unfocused #000000 #000000 #5C0860 #5C0860
 client.urgent #000000 #000000 #e00b76 #e00b76
-client.placeholder $c0 $c0 $c4 $c0 $c0 
+client.placeholder #000000 #000000 #000000 #000000
 client.background #000000
 
 exec compton
