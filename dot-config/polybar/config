@@ -2,9 +2,9 @@
 margin-bottom = 20
 
 [colors]
-highlight = ${xrdb:color6}
-background = ${xrdb:color0}
-shadow = #000000
+highlight = #15ddf0
+background = #000000
+shadow = #15ddf0
 
 [bar/main]
 width = 100%
@@ -14,7 +14,7 @@ override-redirect = false
 
 background = ${colors.background}
 foreground = ${colors.highlight}
-border-bottom = 2
+border-bottom = 1
 border-bottom-color = ${colors.shadow}
 border-left = 0
 border-top = 0
@@ -43,8 +43,8 @@ format = <label-state>
 label-focused = " "
 label-unfocused = " "
 label-visible = " "
-label-visible-foreground = #aaaaaa
-label-urgent-foreground = #ff0000
+label-visible-foreground = #f3f4f5
+label-urgent-foreground = #e00b76
 
 [module/cpu]
 type = internal/cpu

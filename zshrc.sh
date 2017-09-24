@@ -84,6 +84,10 @@ alias ssh="TERM=xterm ssh"
 # CABAL (Haskell)
 [[ -d "$HOME/.cabal/bin"  ]] && export PATH=$HOME/.cabal/bin:$PATH
 
+## GNU Cobol
+[[ -d "/opt/gnucobol/bin" ]] && export PATH=/opt/gnucobol/bin:$PATH
+[[ -d "/opt/gnucobol/lib" ]] && export LD_LIBRARY_PATH=/opt/gnucobol/lib:$LD_LIBRARY_PATH
+
 #--------------------------------------------------------------------------------
 # Aliases
 #--------------------------------------------------------------------------------

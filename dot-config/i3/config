@@ -158,15 +158,18 @@ set_from_resource $c5 i3wm.color5 #A000A0
 set_from_resource $c6 i3wm.color6 #00A0A0
 set_from_resource $c7 i3wm.color7 #AAAAAA
 
+exec_always wal -i $HOME/.wallpaper
 
 client.focused $c0 $c0 $c7 $c3 $c2
 client.focused_inactive $c0 $c0 $c2 $c0
 client.unfocused $c0 $c0 $c4 $c0 $c0 
 client.urgent $c0 $c0 $c4 $c0 $c0 
 client.placeholder $c0 $c0 $c4 $c0 $c0 
-
 client.background $bg
 
+exec compton
+
 exec_always --no-startup-id $HOME/.config/i3/launch_polybars.sh
+exec_always --no-startup-id feh --bg-fill $HOME/.wallpaper
 
 exec /usr/bin/VBoxClient-all

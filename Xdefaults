@@ -31,30 +31,69 @@ URxvt.matcher.button:   1
 URxvt.font: xft:RobotoMono NF:size=12
 
 
-*background: #FFFFFF
-*cursorColor: #FDA53C
+!  *background: #FFFFFF
+!  *cursorColor: #FDA53C
+!  
+!  !black
+!  *color0: #222222
+!  *color8: #666666
+!  !red
+!  *color1: #E84F4F
+!  *color9: #D23D3D
+!  !green
+!  *color2: #B7CE42
+!  *color10: #BDE077
+!  !yellow
+!  *color3: #FEA63C
+!  *color11: #FFE863
+!  !blue
+!  *color4: #66AABB
+!  *color12: #AACCBB
+!  !magenta
+!  *color5: #B7416E
+!  *color13: #E16A98
+!  !cyan
+!  *color6: #6D878D
+!  *color14: #42717B
+!  !white
+!  *color7: #DDDDDD
+!  *color15: #CCCCCC
 
-!black
-*color0: #222222
-*color8: #666666
-!red
-*color1: #E84F4F
-*color9: #D23D3D
-!green
-*color2: #B7CE42
-*color10: #BDE077
-!yellow
-*color3: #FEA63C
-*color11: #FFE863
-!blue
-*color4: #66AABB
-*color12: #AACCBB
-!magenta
-*color5: #B7416E
-*color13: #E16A98
-!cyan
-*color6: #6D878D
-*color14: #42717B
-!white
-*color7: #DDDDDD
-*color15: #CCCCCC
+
+!!! Custom bright colour theme from Terminal.sexy
+! special
+*.foreground:   #c7ccd1
+*.background:   #1c2023
+*.cursorColor:  #c7ccd1
+
+! black
+*.color0:       #2a2a2a
+*.color8:       #808080
+
+! red
+*.color1:       #e29b09
+*.color9:       #e2df09
+
+! green
+*.color2:       #95c7ae
+*.color10:      #95c7ae
+
+! yellow
+*.color3:       #8fa741
+*.color11:      #bada55
+
+! blue
+*.color4:       #5c0860
+*.color12:      #9f0ea6
+
+! magenta
+*.color5:       #9f1258
+*.color13:      #e00b76
+
+! cyan
+*.color6:       #2079d1
+*.color14:      #15ddf0
+
+! white
+*.color7:       #c7ccd1
+*.color15:      #f3f4f5
