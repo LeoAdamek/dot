@@ -25,14 +25,16 @@ padding-right = 5
 
 module-margin-right = 2
 
-font-0 = "Ubuntu Mono:size=12;0"
+font-0 = "Roboto Mono NF:size=12;0"
 font-1 = "FontAwesome:size=12;0"
 
-modules-left = i3spaces
+modules-left = i3spaces mpd
 modules-center = clock
 modules-right = cpu ram net
 
 enable-ipc = true
+
+tray-position = right
 
 
 [module/i3spaces]
@@ -64,6 +66,80 @@ time = %H:%M:%S
 
 [module/net]
 type = internal/network
-interface = enp0s3
+interface = enp3s0
 interval = 1.0
 label-connected = " %downspeed:8% / %upspeed:8%"
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+interval = 1
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone>
+;   <icon-consume>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song> <label-time>
+;format-playing = ${self.format-online}
+;format-paused = ${self.format-online}
+;format-stopped = ${self.format-online}
+
+; Available tags:
+;   <label-offline>
+;format-offline = <label-offline>
+
+; Available tokens:
+;   %artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = 𝄞 %artist% - %title%
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+label-time = (%elapsed% / %total%)
+
+; Available tokens:
+;   None
+label-offline = 🎜 mpd is offline
+
+; Only applies if <icon-X> is used
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 🔀
+icon-repeat = 🔁
+icon-repeatone = 🔂
+icon-consume = ✀
+
+; Used to display the state of random/repeat/repeatone
+; Only applies if <icon-[random|repeat|repeatone]> is used
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 45
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = -
