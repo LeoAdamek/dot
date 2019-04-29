@@ -28,7 +28,7 @@ module-margin-right = 2
 font-0 = "Roboto Mono NF:size=12;0"
 font-1 = "FontAwesome:size=12;0"
 
-modules-left = i3spaces mpd
+modules-left = i3spaces
 modules-center = clock
 modules-right = cpu ram net
 
