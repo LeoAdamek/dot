@@ -27,10 +27,10 @@ URxvt.perl-ext-common:  default,matcher
 URxvt.url-launcher: firefox-developer-edition
 URxvt.matcher.button:   1
 
-URxvt.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
+!URxvt.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 !URxvt.font: -misc-tamzen-medium-r-normal--12-87-100-100-c-60-iso8859-1
 !URxvt.font: xft:DejaVuSansMonoForPowerLine Nerd Font, Book:size=14
-!URxvt.font: xft:RobotoMono NF:size=12
+URxvt.font: xft:RobotoMono:size=12
 
 
 !  *background: #FFFFFF

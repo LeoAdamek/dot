@@ -20,7 +20,7 @@ ZSH_THEME="miloshadzic"
 # Plugins
 # (For oh-my-zsh)
 #--------------------------------------------------------------------------------
-plugins=(git colorize docker emoji-clock httpie archlinux theme aws bundler systemd)
+plugins=(git colorize heroku archlinux aws bundler systemd)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
@@ -132,10 +132,11 @@ export GREP_OPTIONS=
 [[ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] \
     && source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-export LS_COLORS=$($HOME/.bin/ls_colors_generator)
+#export LS_COLORS=$($HOME/.bin/ls_colors_generator)
 #alias  ls="~/.bin/ls --color=auto"
 
 source ~/.profile
 
 # Cow-free Ansible.
 export ANSIBLE_NOCOWS=1
+source /usr/share/nvm/init-nvm.sh
