@@ -1,0 +1,13 @@
+@theme "/usr/share/rofi/themes/purple.rasi"
+
+* {
+	background: #141c21;
+	background-color: #141c21;
+	bordercolor: #9595cd;
+	foreground: #9595cd;
+	normal-background: @background;
+	alternate-normal-background: @background;
+	selected-active-background: #673ab7;
+	font-face: "RobotoMono";
+	separatorcolor: #9595cd;
+}
