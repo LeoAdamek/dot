@@ -173,5 +173,6 @@ exec picom
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --colorblocks
 exec_always --no-startup-id feh --bg-fill $HOME/.wallpaper
+exec thunar --daemon
 
 exec dunst
