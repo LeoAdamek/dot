@@ -66,27 +66,11 @@ alias ssh="TERM=xterm ssh"
 [[ -d '/opt/postgres/bin' ]] && export PATH=/opt/postgres/bin:$PATH
 [[ -d '/opt/redis/bin'    ]] && export PATH=/opt/redis/bin:$PATH
 
-## Arduino IDE
-[[ -d '/opt/arduino'      ]] && export PATH=/opt/arduino:$PATH
-
-## 3D Printing Tools
-[[ -d '/opt/pronterface'  ]] && export PATH=/opt/printerface:$PATH
-[[ -d '/opt/slic3r'       ]] && export PATH=/opt/slic3r:$PATH
-[[ -d '/opt/Simplify3D'   ]] && export PATH=/opt/Simplify3D:$PATH
-
-## IntelliJ IDEA
-[[ -d '/opt/idea'         ]] && export PATH=/opt/idea/bin:$PATH
-
-## RVM
-[[ -d "$HOME/.bin"        ]] && export PATH=$HOME/.bin:$PATH
-[[ -d "$HOME/.rvm/bin"    ]] && export PATH=$HOME/.rvm/bin:$PATH
-
 # CABAL (Haskell)
 [[ -d "$HOME/.cabal/bin"  ]] && export PATH=$HOME/.cabal/bin:$PATH
 
-## GNU Cobol
-[[ -d "/opt/gnucobol/bin" ]] && export PATH=/opt/gnucobol/bin:$PATH
-[[ -d "/opt/gnucobol/lib" ]] && export LD_LIBRARY_PATH=/opt/gnucobol/lib:$LD_LIBRARY_PATH
+# Cargo (Rust)
+[[ -d "$HOME/.cargo/bin"  ]] && export PATH=$HOME/.cargo/bin:$PATH
 
 #--------------------------------------------------------------------------------
 # Aliases
@@ -102,6 +86,13 @@ alias pacman="pacman --color=always"
 # Git Aliases
 alias git-fancy-log="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias git-count="git rev-list HEAD --count"
+
+# Output colours
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+
+export LESS='-R --use-color -Dd+r$Du+b'
+export MANPAGER='less -R --use-color -Dd+r -Du+b'
 
 # Dalek Delete
 alias exterminate="rm -rf"
@@ -140,3 +131,7 @@ source ~/.profile
 # Cow-free Ansible.
 export ANSIBLE_NOCOWS=1
 source /usr/share/nvm/init-nvm.sh
+
+export GOPATH=$HOME/development/go
+
+eval "$(rbenv init -)"
