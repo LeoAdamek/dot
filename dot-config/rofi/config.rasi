@@ -8,6 +8,5 @@
 	normal-background: @background;
 	alternate-normal-background: @background;
 	selected-active-background: #673ab7;
-	font-face: "RobotoMono";
 	separatorcolor: #9595cd;
 }
