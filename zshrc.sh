@@ -6,7 +6,7 @@
 setopt extendedglob
 
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH="$HOME/.oh-my-zsh"
 
 #--------------------------------------------------------------------------------
 # Set name of the theme to load.
@@ -14,18 +14,23 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #--------------------------------------------------------------------------------
-ZSH_THEME="miloshadzic"
+ZSH_THEME="dieter"
 
 #--------------------------------------------------------------------------------
 # Plugins
 # (For oh-my-zsh)
 #--------------------------------------------------------------------------------
-plugins=(git colorize heroku archlinux aws bundler systemd)
+plugins=(git colorize archlinux aws systemd themes)
 
 #--------------------------------------------------------------------------------
 # Load oh-my-zsh
 #--------------------------------------------------------------------------------
-source $ZSH/oh-my-zsh.sh
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+  source "$ZSH/oh-my-zsh.sh"
+else
+  echo "[!] oh-my-zsh not found in $ZSH" 
+  echo "override $ZSH if it is installed somewhere else"
+fi
 
 #--------------------------------------------------------------------------------
 # SSH Agent -- Only if one isn't already open (TODO!)
@@ -45,7 +50,7 @@ export EDITOR=vim
 
 #--------------------------------------------------------------------------------
 # Hack to change terminal behaviour so SSH works correctly
-# As remote hosts won't be configued for a 256-colour temrinal.
+# As remote hosts often won't be configued for a 256-colour temrinal.
 #--------------------------------------------------------------------------------
 alias ssh="TERM=xterm ssh"
 
@@ -56,25 +61,20 @@ alias ssh="TERM=xterm ssh"
 
 #--------------------------------------------------------------------------------
 # Additional Paths
-# Will check for each of the following directories and append it to the path.
+# Will check for each of the following directories and prepend it to the path.
 #--------------------------------------------------------------------------------
-# PHP from source
-[[ -d '/opt/php/bin'      ]] && export PATH=/opt/php/bin:$PATH
-
-## Databases etc
-[[ -d '/opt/mongodb/bin'  ]] && export PATH=/opt/mongodb/bin:$PATH
-[[ -d '/opt/postgres/bin' ]] && export PATH=/opt/postgres/bin:$PATH
-[[ -d '/opt/redis/bin'    ]] && export PATH=/opt/redis/bin:$PATH
-
-# CABAL (Haskell)
-[[ -d "$HOME/.cabal/bin"  ]] && export PATH=$HOME/.cabal/bin:$PATH
 
 # Cargo (Rust)
 [[ -d "$HOME/.cargo/bin"  ]] && export PATH=$HOME/.cargo/bin:$PATH
 
+# Google Cloud SDK
+[[ -d '/opt/google-cloud-sdk' ]] && export PATH=/opt/google-cloud-sdk/bin:$PATH
+
 #--------------------------------------------------------------------------------
 # Aliases
 #--------------------------------------------------------------------------------
+
+[[ -n `which chromium` ]] && export CHROME_EXECUTABLE=chromium
 
 # Shibe git
 alias wow='git status'
@@ -116,6 +116,9 @@ alias dockertop="docker stats $(docker ps --format '{{.Names}}')"
 # useful command for testing TLS
 alias tlsprobe="openssl s_client -connect"
 
+alias kc=kubectl
+alias tf=terraform
+
 # Unsetting GREP_OPTIONS because it is deprecated.
 export GREP_OPTIONS=
 
@@ -132,6 +135,28 @@ source ~/.profile
 export ANSIBLE_NOCOWS=1
 source /usr/share/nvm/init-nvm.sh
 
-export GOPATH=$HOME/development/go
+export GOPATH=$HOME/development/.go
+export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/.yarn/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.fly/bin:$PATH
 
-eval "$(rbenv init -)"
+[[ -n `which rbenv` ]] && eval "$(rbenv init -)"
+
+alias tssh="tsh ssh -i $HOME/.config/teleport.pem --proxy ssh.eu.mrzen.net"
+#export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
+
+# bun completions
+[ -s "/home/leo/.bun/_bun" ] && source "/home/leo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+#1 Password
+source /home/leo/.config/op/plugins.sh
+
+# SSH Agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
+
+[ -f "/home/leo/.ghcup/env" ] && . "/home/leo/.ghcup/env" # ghcup-env
