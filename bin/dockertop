@@ -1,3 +1,0 @@
-#!/usr/bin/zsh
-
-docker stats $(docker ps --format='{{.Names}}')
