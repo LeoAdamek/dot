@@ -34,6 +34,25 @@ return {
   },
 
   {
+    "yashranjan1/purple-rain.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
+  {
+    "jparise/vim-graphql",
+    lazy = false,
+    ft = "graphql",
+  },
+
+  {
+    'mrcjkb/haskell-tools.nvim',
+    version = '^4',
+    lazy = false,
+  },
+
+  {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
