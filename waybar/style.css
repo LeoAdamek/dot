@@ -17,19 +17,22 @@ window#waybar {
 }
 
 #workspaces {
-    padding: 2px 5px;
+    padding: 0;
     margin: 0;
     background: rgba(20, 28, 33, 1);
 }
 
 #workspaces button {
-    padding: 0 5px;
+    margin: 2px 0;
+    padding: 5px;
     background: transparent;
-    border-top: 2px solid transparent;
+    /*border-top: 2px solid transparent;*/
+    border-bottom: 2px solid transparent;
 }
 
 #workspaces button.active {
     color: #ffffff;
+    /*background: #9575cd;*/
     border-bottom: 2px solid #5e35b1;
 }
 
@@ -109,5 +112,6 @@ window#waybar {
 }
 
 #tray {
+    /* filter: saturate(0%); */
 }
 

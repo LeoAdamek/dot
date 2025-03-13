@@ -4,7 +4,7 @@
     "height": 40, // Waybar height
     // "width": 1366, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces", "tray"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock"],
     "hyprland/workspaces": {
@@ -13,18 +13,15 @@
         "format": "{icon}",
         "format-icons": {
             "1": "",
-            "2": "\ue8da",
+            "2": "\ue8da", // VS Code
             "3": "",
-            "4": "\ue86b",
-            "5": "\ue8a4",
+            "4": "\ue86b", // Postman
+            "5": "\ue8a4", // Slack
             "6": "",
             "urgent": "",
             "focused": "",
             "default": ""
         }
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
         // "icon-size": 21,
@@ -33,7 +30,8 @@
     "clock": {
 	"interval": 1,
 	"format": "{:%H:%M:%S}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%Y-%m-%d}",
+	"tooltip": false
     },
     "cpu": {
 	"interval": 1,
@@ -42,7 +40,8 @@
     "memory": {
 	"interval": 2,
         "format": "{used:.2f}G ",
-	"on-click": "alacritty -e btop"
+	"on-click": "alacritty -e btop",
+	"tooltip-format": "{used:.2f}GiB / {total:.2f}GiB"
     },
     "battery": {
         "bat": "BAT0",
@@ -58,10 +57,10 @@
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} @ {signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-wifi": "{essid}: {signalStrength}% @ {frequency}GHz ",
+        "format-ethernet": "{ifname} ",
         "format-disconnected": "N/A",
-	"on-click": "nmtui"
+	"tooltip-format": "Addr: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         //"scroll-step": 1,
