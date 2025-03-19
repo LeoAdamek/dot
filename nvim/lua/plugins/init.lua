@@ -64,9 +64,18 @@ return {
     config = function()
       require('render-markdown').setup({})
     end
+  },
+
+  --Nvim-QT Shim
+  {
+    "equalsraf/neovim-gui-shim",
+    lazy = false
+  },
+
+  {
+    "echasnovski/mini.align",
+    version = '*',
   }
-
-
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {

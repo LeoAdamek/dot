@@ -11,6 +11,9 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+vim.o.wrap = false
+vim.o.expandtab = true
+
 local lazy_config = require "configs.lazy"
 
 -- load plugins
@@ -35,3 +38,6 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+require('render-markdown').setup()
+require('mini.align').setup()
