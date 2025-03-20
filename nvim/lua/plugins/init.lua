@@ -72,10 +72,18 @@ return {
     lazy = false
   },
 
+  -- Align and justify text
   {
     "echasnovski/mini.align",
     version = '*',
-  }
+  },
+
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
+
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
